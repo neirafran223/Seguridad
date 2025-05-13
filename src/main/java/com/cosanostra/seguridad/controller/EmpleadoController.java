@@ -2,11 +2,11 @@ package com.cosanostra.seguridad.controller;
 
 import java.util.List;
 
-import java.net.http.HttpResponse.ResponseInfo;
 import com.cosanostra.seguridad.model.Empleado;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cosanostra.seguridad.service.EmpleadoService;
 
 @RestController
+@CrossOrigin(origins = "http://127.0.0.1:5501")
 @RequestMapping("/api/v1/empleados")
 public class EmpleadoController{
 
@@ -53,12 +54,8 @@ public class EmpleadoController{
         try{
             Empleado emp = empleadoService.findById(id);
             emp.setId(id);
-            emp.setRun(empleado.getRun());
-            emp.setNombreCompleto(empleado.getNombreCompleto());
-            emp.setCorreo(empleado.getCorreo());
-            emp.setEdad(empleado.getEdad());
-            emp.setEmpresaOrigen(empleado.getEmpresaOrigen());
-            emp.setNumero(empleado.getNumero());
+            emp.setNombreEmpresa(empleado.getNombreEmpresa());
+            emp.setCantPersonal(empleado.getCantPersonal());
             emp.setTipoSeguridad(empleado.getTipoSeguridad());
 
             empleadoService.save(emp);

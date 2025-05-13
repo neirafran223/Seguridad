@@ -16,25 +16,12 @@ public class Empleado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(unique = true, length = 13, nullable = false)
-    private String run;
+    @Column(unique = false)
+    private String nombreEmpresa;
 
     @Column(unique = false)
-    private String nombreCompleto;
-
-    @Column(unique = false)
-    private int edad;
-
-    @Column(unique = false)
-    private String empresaOrigen;
-
-    @Column(unique = false)
-    private String correo;
-
-    @Column(unique = false)
-    private int numero;
+    private int cantPersonal;
 
     @Column(unique = false)
     private String tipoSeguridad;
-
 }
