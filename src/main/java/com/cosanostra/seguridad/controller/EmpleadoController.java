@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cosanostra.seguridad.service.EmpleadoService;
 
 @RestController
-@CrossOrigin(origins = "http://127.0.0.1:5501")
+@CrossOrigin(origins = "http://127.0.0.1:5050")
 @RequestMapping("/api/v1/empleados")
 public class EmpleadoController{
 
